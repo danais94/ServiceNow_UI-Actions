@@ -1,0 +1,16 @@
+UI ACTION BUTTON - TO CLOSE MULTIPLE RECORDS
+
+
+function closeTickets() {
+  var list = GlideList2.get('table_name');
+  var title = list.getTitle();
+  var checked = list.getChecked();
+      if (checked) {
+          var modal = new GlideModal('ui_page_name');
+          getMessage("Close selected records", function(msg) {
+          modal.setTitle(msg);
+          modal.setPreference('selected_records', checked);
+          modal.render();
+      });
+  }
+}
